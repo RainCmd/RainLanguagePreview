@@ -8,10 +8,9 @@ wstring S2WS(string src)
 	if (!len) return L"";
 	wchar_t* pwc = new wchar_t[len];
 	MultiByteToWideChar(CP_ACP, 0, src.c_str(), -1, pwc, len);
-	wstring result = wstring(pwc, len);
+	wstring result = wstring(pwc, len - 1);
 	delete[] pwc;
 	return result;
-	return L"";
 }
 Args Parse(int cnt, char** args)
 {
